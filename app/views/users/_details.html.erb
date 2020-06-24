@@ -1,0 +1,17 @@
+    <div class="row justify-content-center">
+        <div class='col-3 mt-2'>
+            
+            <div style="width: 22rem;">
+                <%= render 'layouts/flash' %>
+            </div>
+            
+            <% if @stock %>
+            <div class="card" style="width: 20rem;">
+              <div class="card-body">
+                <h5 class="card-title">Company name: <%= @stock.name %></h5>
+                <p class="card-text">Stock price: <%= @stock.last_price%></p>
+              </div>
+            </div>
+            <% end %>
+        </div>
+    </div>
