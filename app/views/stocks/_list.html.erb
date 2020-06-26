@@ -1,0 +1,27 @@
+ <div class="row justify-content-center">
+     <div class="col-7">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Ticker</th>
+              <th scope="col">Name</th>
+              <th scope="col">Price</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+              <% @logged_user_stocks.each do |stock|%>
+            <tr>
+              <th scope="row"><%= @logged_user_stocks.index(stock) + 1 %></th>
+              <td><%= stock.ticker %></td>
+              <td><%= stock.name %></td>
+              <td><%= stock.last_price %></td>
+              <td>Actions to be added shortly.</td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+     </div>
+ </div>

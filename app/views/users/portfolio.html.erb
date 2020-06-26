@@ -18,9 +18,18 @@
          </div>
     </div>
     
+     <div class="row justify-content-center">
+         <div class='col-3 my-2'>
+             <div id="results"></div>
+         </div>
+     </div>
+     <% unless @logged_user_stocks.empty? %>
+     <%= render 'stocks/list' %>
+     <% end %>
 </div>
 
-<div id="results"></div>
+
+
 
 
 

@@ -1,7 +1,5 @@
-    <div class="row justify-content-center">
-        <div class='col-3 mt-2'>
-            
-            <div style="width: 22rem;">
+  
+           <div style="width: 22rem;">
                 <%= render 'layouts/flash' %>
             </div>
             
@@ -10,8 +8,15 @@
               <div class="card-body">
                 <h5 class="card-title">Company name: <%= @stock.name %></h5>
                 <p class="card-text">Stock price: <%= @stock.last_price%></p>
+                <% unless current_user.check_restrictions?(@stock.ticker) %>
+                <%= link_to "Add to portfolio", user_stocks_path(user: current_user, ticker: @stock.ticker), method: :post, 
+                class: "btn btn-success"%>
+                <% else %>
+                <p class="badge badge-secondary"><%= "You are already tracking this portfolio." if current_user.available_stock?(@stock.ticker) %></p>
+                <p class="badge badge-secondary"><%= "Your portfolio exceeds 10 stocks." if current_user.count_stocks? %></p>
+                <% end %>
               </div>
             </div>
             <% end %>
-        </div>
-    </div>
+       
+  

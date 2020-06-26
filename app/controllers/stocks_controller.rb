@@ -3,6 +3,9 @@ class StocksController < ApplicationController
         unless params[:stock].empty?
             @stock = Stock.new_lookup(params[:stock])
            unless @stock.nil?
+               unless Stock.check_db(params[:stock]).nil?
+                # @available = Stock.check_db(params[:stock]).users.include?(current_user)
+               end
                respond_to do |format|
                    format.js {render partial: 'users/details'}
                end
@@ -18,6 +21,7 @@ class StocksController < ApplicationController
                format.js {render partial: 'users/details'}
             end
         end
+        
     end
     
 end
