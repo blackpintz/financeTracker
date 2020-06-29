@@ -7,7 +7,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
  
  def count_stocks?
-    stocks.count <= 10
+    stocks.count >= 10
  end
  
  def available_stock?(ticker_sym)

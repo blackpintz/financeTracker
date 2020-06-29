@@ -17,7 +17,9 @@
               <td><%= stock.ticker %></td>
               <td><%= stock.name %></td>
               <td><%= stock.last_price %></td>
-              <td>Actions to be added shortly.</td>
+              <td><%= link_to "Remove", user_stock_path(stock), 
+              method: :delete, class: "btn btn-small btn-warning",
+               data: {confirm: "Are you sure you want to delete #{stock.name} stock?"}%></td>
             </tr>
             <% end %>
           </tbody>
@@ -25,3 +27,4 @@
 
      </div>
  </div>
+ 
