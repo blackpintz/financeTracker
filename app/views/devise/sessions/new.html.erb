@@ -27,11 +27,8 @@
         <%= f.submit  t('.sign_in'), class: 'btn btn-block' %>
       </div>
     <% end %>
+  
     
-    <button class="btn btn-secondary">
-     <i class="fa fa-camera-retro"></i>
-    </button>
-    
-    <%= render 'devise/shared/links' %>
+    <span>You do not have an account? <%= render 'devise/shared/links' %></span>
   </div>
 </div>
